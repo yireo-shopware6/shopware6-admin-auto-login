@@ -1,0 +1,16 @@
+{% sw_extends '@Administration/administration/index.html.twig' %}
+
+{% block administration_templates %}
+    {{ parent() }}
+
+    <script nonce="{{ cspNonce }}">
+        const hash = window.location.hash;
+        const loginTokenData = JSON.parse('{{ loginTokenData.get|json_encode|raw}}');
+        const adminUrl = '{{ url('administration.index') }}';
+        if (hash.includes('#/login') && loginTokenData && !loginTokenData.errors) {
+            loginTokenData.expiry = Math.round(+new Date() / 1000) + loginTokenData.expiry;
+            document.cookie = 'bearerAuth=' + encodeURIComponent(JSON.stringify(loginTokenData)) + ';path=/admin;SameSite=Strict';
+            document.location = adminUrl;
+        }
+    </script>
+{% endblock %}

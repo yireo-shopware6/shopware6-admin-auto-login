@@ -1,0 +1,20 @@
+{
+  "name": "yireo/shopware6-admin-auto-login",
+  "description": "Admin autologin plugin",
+  "type": "shopware-platform-plugin",
+  "license": "MIT",
+  "require": {
+    "shopware/administration": "^6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Yireo\\AdminAutoLogin\\": "src/"
+    }
+  },
+  "extra": {
+    "shopware-plugin-class": "Yireo\\AdminAutoLogin\\YireoAdminAutoLogin",
+    "label": {
+      "en-GB": "Admin autologin plugin"
+    }
+  }
+}
