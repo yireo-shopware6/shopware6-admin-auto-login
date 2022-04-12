@@ -7,6 +7,9 @@ use Yireo\AdminAutoLogin\DependencyInjection\AdminAutoLoginExtension;
 
 class YireoAdminAutoLogin extends Plugin
 {
+    /**
+     * @return AdminAutoLoginExtension
+     */
     public function getContainerExtension()
     {
         return new AdminAutoLoginExtension();
